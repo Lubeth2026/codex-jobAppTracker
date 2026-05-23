@@ -1,0 +1,14 @@
+
+.entry-form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 50px;
+    margin: auto;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    align-items: center;
+}
+.input-row{
+    margin-bottom: 12px;
+}

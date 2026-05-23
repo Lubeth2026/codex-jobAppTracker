@@ -4,9 +4,11 @@
     color: #333
 }
 .index-card{
-    box-shadow: 0 4px 12px;
+    box-shadow: 0 4px 12px black;
     width: 60%;
     margin: 16px auto;
     padding: 30px;
     background-color: whitesmoke; 
+    margin-top: 10px;
+    margin-bottom: 20px;
 }

@@ -1,6 +1,7 @@
 
 import './App.css'
 import JobDataIndex from './components/JobDataIndex'
+import JobEntryForm from './components/JobEntryForm'
 
 function App() {
   
@@ -9,6 +10,7 @@ function App() {
     <>
       <h1>Capstone</h1>
       <JobDataIndex />
+      <JobEntryForm />
     </>
   )
 }
