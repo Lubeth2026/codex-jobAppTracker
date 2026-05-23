@@ -8,6 +8,8 @@ function JobEntryForm() {
      const [formData, setFormData] = useState({
       company: "", position: "", status: "", location: "", salary: "", notes: "", applied_date: ""
      });
+//ERROR State (can't add submit an empty form)//
+     const [errorMessage, setErrorMessage] = useState("");
 
   function handleChange(event){
     setFormData({
@@ -19,6 +21,11 @@ function JobEntryForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
+        if (!formData.company || !formData.position || !formData.status) {
+          setErrorMessage("Please fill out all required fields.");
+          return;
+        }
+        setErrorMessage("");
       const {error} = await supabase.from("tracker").insert([formData]);
       
     } catch (error) {
@@ -32,17 +39,19 @@ function JobEntryForm() {
     <div>
         <form className="entry-form" onSubmit={handleSubmit}>
           <h2>Add New Job Form</h2>
+          {errorMessage && <p>{errorMessage}</p>}
           <label className="input-row">Company:
-            <input type="text" name="company" id="company" value={formData.company} onChange={handleChange} />
+            <input type="text" name="company" id="company" value={formData.company} onChange={handleChange} required/>
           </label>
           <label className="input-row">Location:
             <input type="text" name="location" id="location" value={formData.location} onChange={handleChange} />
           </label>
           <label className="input-row">Position:
-            <input type="text" name="position" id="position" value={formData.position} onChange={handleChange} />
+            <input type="text" name="position" id="position" value={formData.position} onChange={handleChange} required/>
           </label>
           <label className="input-row">Status:
-            <input type="text" name="status" id="status" value={formData.status} onChange={handleChange} />
+            <input type="text" name="status" id="status" value={formData.status} onChange={handleChange} 
+            required/>
           </label>
           <label className="input-row">Salary:
             <input type="text" name="salary" id="salary" value={formData.salary} onChange={handleChange} />
