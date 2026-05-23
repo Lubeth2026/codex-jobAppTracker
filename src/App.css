@@ -1,0 +1,10 @@
+
+body{
+  background-color: rgb(206, 220, 241);
+}
+h1{
+  font-family: sans-serif;
+  text-decoration: underline;
+  display: flex;
+  justify-content: center;
+}
