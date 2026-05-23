@@ -1,0 +1,12 @@
+
+.card-title{
+    margin: 12px 0 8px;
+    color: #333
+}
+.index-card{
+    box-shadow: 0 4px 12px;
+    width: 60%;
+    margin: 16px auto;
+    padding: 30px;
+    background-color: whitesmoke; 
+}
