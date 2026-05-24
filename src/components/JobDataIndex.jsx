@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 import "./JobDataIndex.css";
+import { Link } from "react-router";
 
 function JobDataIndex() {
 //READ from Database State//
@@ -40,6 +41,7 @@ function JobDataIndex() {
           <p>Salary: {job.salary}</p>
           <p>Notes: {job.notes}</p>
           <p>Applied Date: {job.applied_date}</p>
+          <Link to={`/edit-job/${job.id}`}>Edit</Link>
         </div>
       ))}
     </div>

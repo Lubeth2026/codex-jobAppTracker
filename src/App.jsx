@@ -6,6 +6,7 @@ import AuthForm from './components/AuthForm'
 import JobDataIndex from './components/JobDataIndex'
 import JobEntryForm from './components/JobEntryForm'
 import { Link, Navigate, Route, Routes } from 'react-router'
+import JobUpdateForm from './components/JobUpdateForm'
 
 function App() {
 //User Session State (if not in session/can't view data)//
@@ -54,6 +55,7 @@ async function handleLogout() {
         <Route path="/add-job" element={<JobEntryForm />} />
         <Route path="/jobs" element={<JobDataIndex />} />
         <Route path="*" element={<Navigate to="/add-job" />} />
+        <Route path="/edit-job/:id" element={<JobUpdateForm />} />
         </>
       )}
       </Routes>
