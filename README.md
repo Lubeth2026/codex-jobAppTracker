@@ -1,16 +1,47 @@
-# React + Vite
+# Job App Tracker
+- Project Description
+The Job App Tracker is a full-stack React app that allows users to manage their job applications in one place. Users can create an account, log in securely with Supabase Authentication, and perform full CRUD operations on job entries.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The app help users organize their job their job search by tracking:
+- company name, position, job status, location, date applied
+Users can also sort their applications by:
+- company name, status, or application date
 
-Currently, two official plugins are available:
+## Features
+Authentication
+- Users can: sign up, login, logout
+The app is protected using Supabase Auth. Users must be logged in to access the app.
+CRUD Functionality
+- CREATE- Users can add new job app using a form
+- READ- All submitted job apps are displayed on the jobs page
+- UPDATE- Users can edit an existing job entry & update job information
+- DELETE- Users can remove job apps from the database
+Sorting 
+Users can sort job entries by: company name, status, date applied
+Sorting is handled using React state and array sorting methods.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### How Data Works in the App
+The app uses Supabase as the backend database.
+Data Flow:
+1. User submits form
+2. React sends data to Supabase
+3. Supabase stores the data
+4. React fetches the updated data
+5. Data is rendered on the page
+Routing:
+React Router DOM is used to create multiple pages and protected Routes
+Users who are not authenticated are redirected to the login page
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#### Installation
+1. Install Dependencies:
+npm install 
+2. Install React Router:
+npm install react-router
+3. Install Supabase:
+npm install @supabase/supabase-js
+4. Create Environment Variables:
+copy & paste .env file
+5. Create Supabase Client:
+copy & paste supabase file
+6. Start the Server:
+npm run dev
