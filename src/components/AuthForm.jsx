@@ -58,15 +58,6 @@ async function handleLogin(event) {
        console.log(error) 
     }
 }
-//Logout//
-async function handleLogout() {
-    try {
-        await supabase.auth.signOut();
-        setMessage("Logged Out");
-    } catch (error) {
-        console.log(error)
-    }
-}
 
 
   return (
@@ -100,8 +91,6 @@ async function handleLogout() {
             setMessage("");
         }}>Login</button></p>
        )}
-       {/*Hides the logout button unless user is logged in*/}
-       {isLogin && (<button onClick={handleLogout}>Logout</button>)}
     </div>
   )
 }
