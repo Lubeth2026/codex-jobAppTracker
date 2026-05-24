@@ -5,6 +5,7 @@ import { supabase } from './utils/supabase'
 import AuthForm from './components/AuthForm'
 import JobDataIndex from './components/JobDataIndex'
 import JobEntryForm from './components/JobEntryForm'
+import { Link, Navigate, Route, Routes } from 'react-router'
 
 function App() {
 //User Session State (if not in session/can't view data)//
@@ -32,18 +33,30 @@ async function handleLogout() {
   return (
     <>
       <h1>Capstone</h1>
+      {/*Logged in Nav*/}
+      {session && (
+        <nav>
+          <Link to="/jobs">Jobs</Link>
+          <Link to="/add-job">Add Job</Link>
+          <button onClick={handleLogout}>Logout</button>
+        </nav>
+      )}
+      <Routes>
       {/*Logged Out*/}
-
       {!session ? (
-        <AuthForm />
+        <>
+        <Route path="/" element={<AuthForm />} />
+        <Route path="*" element={<Navigate to="/" />} />
+        </>
       ) : (
         <>
         {/*ONLY Show App if Logged In*/}
-        <button onClick={handleLogout}>Logout</button>
-        <JobEntryForm />
-        <JobDataIndex />
+        <Route path="/add-job" element={<JobEntryForm />} />
+        <Route path="/jobs" element={<JobDataIndex />} />
+        <Route path="*" element={<Navigate to="/add-job" />} />
         </>
       )}
+      </Routes>
     </>
   );
 }
