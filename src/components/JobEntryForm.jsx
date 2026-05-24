@@ -57,7 +57,7 @@ function JobEntryForm() {
             <input type="text" name="salary" id="salary" value={formData.salary} onChange={handleChange} />
           </label>
           <label className="input-row">Notes:
-            <textarea name="notes" id="notes" value={formData.notes} onChange={handleChange} ></textarea>
+            <textarea rows={5} cols={22} name="notes" id="notes" value={formData.notes} onChange={handleChange} ></textarea>
           </label>
           <label className="input-row">Applied Date:
             <input type="date" name="applied_date" id="applied_date" value={formData.applied_date} 
