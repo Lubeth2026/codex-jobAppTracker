@@ -26,6 +26,19 @@ function JobDataIndex() {
   useEffect(() => {
     fetchJobs();
   }, []);
+//DELETE// 
+async function handleDelete(id) {
+   try {
+    const {error} = await supabase.from("tracker").delete().eq("id", id);
+    if(error){
+      console.log(error)
+    } else {
+      fetchJobs();
+    }
+   } catch (error) {
+    console.log(error)
+   }
+}
 
 
   return (
@@ -42,6 +55,7 @@ function JobDataIndex() {
           <p>Notes: {job.notes}</p>
           <p>Applied Date: {job.applied_date}</p>
           <Link to={`/edit-job/${job.id}`}>Edit</Link>
+          <button onClick={()=> handleDelete(job.id)}>Delete</button>
         </div>
       ))}
     </div>

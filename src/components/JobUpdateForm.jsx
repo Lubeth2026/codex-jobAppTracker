@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../utils/supabase'
 import { useNavigate, useParams } from 'react-router'
+import './JobUpdateForm.css'
 
 function JobUpdateForm() {
     const {id} = useParams();
@@ -53,17 +54,17 @@ async function handleSubmit(event) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label >Company:
+      <form className="update-form" onSubmit={handleSubmit}>
+        <label className="input-row">Company:
             <input type="text" name="company" id="company" value={formData.company} onChange={handleChange} required />
         </label>
-        <label >Position:
+        <label className="input-row">Position:
             <input type="text" name="position" id="position" value={formData.position} onChange={handleChange} required />
         </label>
-        <label >Status:
+        <label className="input-row">Status:
             <input type="text" name="status" id="status" value={formData.status} onChange={handleChange} required />
         </label>
-        <label >Location:
+        <label className="input-row">Location:
             <input type="text" name="location" id="location" value={formData.location} onChange={handleChange} required />
         </label>
         <button type="submit">Update Job</button>
