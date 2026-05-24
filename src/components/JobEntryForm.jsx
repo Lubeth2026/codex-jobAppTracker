@@ -27,10 +27,17 @@ function JobEntryForm() {
         }
         setErrorMessage("");
       const {error} = await supabase.from("tracker").insert([formData]);
-      
+      if(error){
+        console.log(error)
+      } else {
+        console.log("Job Entry Added")
+      }
+      //Clear Form//
+      setFormData({
+        company: "", position: "", status: "", location: "", salary: "", notes: "", applied_date: ""
+      })
     } catch (error) {
       console.log(error)
-      setFormData()
     }
 }
 

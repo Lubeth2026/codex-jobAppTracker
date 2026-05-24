@@ -62,7 +62,13 @@ async function handleSubmit(event) {
             <input type="text" name="position" id="position" value={formData.position} onChange={handleChange} required />
         </label>
         <label className="input-row">Status:
-            <input type="text" name="status" id="status" value={formData.status} onChange={handleChange} required />
+            <select type="text" name="status" id="status" value={formData.status} onChange={handleChange} required >
+                 <option value="">Select Status</option>
+                <option value="Applied">Applied</option>
+                <option value="Interview">Interview</option>
+                <option value="Offer">Offer</option>
+                <option value="Declined">Declined</option>
+            </select>
         </label>
         <label className="input-row">Location:
             <input type="text" name="location" id="location" value={formData.location} onChange={handleChange} required />

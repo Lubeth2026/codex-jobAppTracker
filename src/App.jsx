@@ -54,7 +54,7 @@ async function handleLogout() {
         {/*ONLY Show App if Logged In*/}
         <Route path="/add-job" element={<JobEntryForm />} />
         <Route path="/jobs" element={<JobDataIndex />} />
-        <Route path="*" element={<Navigate to="/add-job" />} />
+        <Route path="*" element={<Navigate to="/jobs" />} />
         <Route path="/edit-job/:id" element={<JobUpdateForm />} />
         </>
       )}
