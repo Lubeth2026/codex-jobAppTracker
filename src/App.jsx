@@ -37,28 +37,35 @@ async function handleLogout() {
       {/*Logged in Nav*/}
       {session && (
         <nav>
-          <Link to="/jobs">Jobs</Link>
-          <Link to="/add-job">Add Job</Link>
-          <button onClick={handleLogout}>Logout</button>
+          <Link className="nav-link" to="/jobs">
+            Jobs
+          </Link>
+          <Link className="nav-link" to="/add-job">
+            Add Job
+          </Link>
+          <button className="button-logout" onClick={handleLogout}>
+            Logout
+          </button>
         </nav>
       )}
       <Routes>
-      {/*Logged Out*/}
-      {!session ? (
-        <>
-        <Route path="/" element={<AuthForm />} />
-        <Route path="*" element={<Navigate to="/" />} />
-        </>
-      ) : (
-        <>
-        {/*ONLY Show App if Logged In*/}
-        <Route path="/add-job" element={<JobEntryForm />} />
-        <Route path="/jobs" element={<JobDataIndex />} />
-        <Route path="*" element={<Navigate to="/jobs" />} />
-        <Route path="/edit-job/:id" element={<JobUpdateForm />} />
-        </>
-      )}
+        {/*Logged Out*/}
+        {!session ? (
+          <>
+            <Route path="/" element={<AuthForm />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </>
+        ) : (
+          <>
+            {/*ONLY Show App if Logged In*/}
+            <Route path="/add-job" element={<JobEntryForm />} />
+            <Route path="/jobs" element={<JobDataIndex />} />
+            <Route path="*" element={<Navigate to="/jobs" />} />
+            <Route path="/edit-job/:id" element={<JobUpdateForm />} />
+          </>
+        )}
       </Routes>
+      <footer>Copyright &copy;</footer>
     </>
   );
 }

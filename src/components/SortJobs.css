@@ -1,0 +1,10 @@
+
+.sort-title{
+    text-align: center;
+}
+.sort-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}

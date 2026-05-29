@@ -1,5 +1,11 @@
 
-.entry-form{
+.auth-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input-auth{
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -12,7 +18,7 @@
 .input-row{
     margin-bottom: 12px;
 }
-.button-entry{
+.auth-button{
     display: flex;
     justify-self: center;
     background-color: #007bff;
@@ -23,6 +29,9 @@
     cursor: pointer;
     margin-top: 12px;
 }
-.button-entry:hover{
+.auth-button:hover{
     background-color: #0056b3;
+}
+.auth-subtitle{
+    text-align: center;
 }

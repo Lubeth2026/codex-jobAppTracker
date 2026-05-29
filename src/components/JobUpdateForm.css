@@ -12,3 +12,17 @@
 .input-row{
     margin-bottom: 12px;
 }
+.button-update{
+    display: flex;
+    justify-self: center;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+.button-update:hover{
+    background-color: #0056b3;
+}

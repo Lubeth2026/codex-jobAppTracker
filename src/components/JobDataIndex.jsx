@@ -59,7 +59,8 @@ function JobDataIndex() {
     <div>
       {/*READ from Database*/}
       <h2 className="card-title">Job App Tracker:</h2>
-      <SortJobs sortOption={sortOption} setSortOption={setSortOption} />
+      <div className="sort-container"> <SortJobs sortOption={sortOption} setSortOption={setSortOption} />
+      </div>
       {sortedJobs.map((job) => (
         <div className="index-card" key={job.id}>
           <h3 style={{ textDecoration: "underline" }}>{job.company}</h3>
@@ -70,7 +71,7 @@ function JobDataIndex() {
           <p>Notes: {job.notes}</p>
           <p>Applied Date: {job.applied_date}</p>
           <Link to={`/edit-job/${job.id}`}>Edit</Link>
-          <button onClick={() => handleDelete(job.id)}>Delete</button>
+          <button className="button-index" onClick={() => handleDelete(job.id)}>Delete</button>
         </div>
       ))}
     </div>

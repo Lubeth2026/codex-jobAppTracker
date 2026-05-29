@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 import { supabase } from '../utils/supabase'
+import './AuthForm.css'
 
 function AuthForm() {
 //Authentication State//
@@ -24,7 +25,7 @@ async function handleSignUp(event) {
             setMessage("Please fill out all required fields.");
             return;
         }
-        {/*OPTIONS Stores the user's name in supabase auth metadata w/ (session.user.user_metadata.name)*/}
+        {/*OPTIONS Stores the user's name in supabase auth metadata*/}
     const {error} = await supabase.auth.signUp({
         email: formInputs.email, password: formInputs.password,
         options: { data: { name: formInputs.name }}
@@ -61,32 +62,33 @@ async function handleLogin(event) {
 
 
   return (
-    <div>
-      <h2>{isLogin ? "Login" : "Create Account"}</h2>
+    <div >
+      <h2 className="auth-title">{isLogin ? "Login" : "Create Account"}</h2>
       {message && <p>{message}</p>}
-      <form className="auth-form" onSubmit={isLogin ? handleLogin : handleSignUp}>
+      <form className="input-auth" onSubmit={isLogin ? handleLogin : handleSignUp}>
       {/*Show name ONLY for Sign Up*/}
       {!isLogin && (
-        <label >Name:
+        <label className="input-row">Name:
             <input type="text" name="name" id="name" value={formInputs.name} onChange={handleChange} required />
         </label>
       )}
-       <label >Email:
+       <label className="input-row">Email:
         <input type="email" name="email" id="email" value={formInputs.email} onChange={handleChange} required />
        </label>
-       <label >Password:
+       <label className="input-row">Password:
         <input type="password" name="password" id="password" value={formInputs.password} onChange={handleChange} 
         required />
        </label>
        {/*Conditional Button*/}
-       <button type="submit">{isLogin ? "Login" : "Sign Up"}</button>
+       <button className="auth-button" type="submit">{isLogin ? "Login" : "Sign Up"}</button>
       </form>
        {/*Toggle Buttons*/}
-       {isLogin ? ( <p>Need an account?<button onClick={()=>{
+       {isLogin ? ( <p className="auth-subtitle">Need an account?<button className="auth-button" onClick={()=>{
         setIsLogin(false);
         setMessage("");
        }}>Sign Up</button></p>) : (
-        <p>Already have an account?<button onClick={()=>{
+        <p className="auth-subtitle">Already have an account?
+        <button className="auth-button" onClick={()=>{
             setIsLogin(true);
             setMessage("");
         }}>Login</button></p>

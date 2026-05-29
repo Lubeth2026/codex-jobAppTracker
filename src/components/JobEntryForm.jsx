@@ -76,7 +76,7 @@ function JobEntryForm() {
             <input type="date" name="applied_date" id="applied_date" value={formData.applied_date} 
             onChange={handleChange} />
           </label>
-          <button type="submit">Add Job</button>
+          <button className="button-entry" type="submit">Add Job</button>
         </form>
     </div>
   )

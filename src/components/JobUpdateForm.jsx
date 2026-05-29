@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router'
 import './JobUpdateForm.css'
 
 function JobUpdateForm() {
+    //useParams grabs {id} values from the URL/Database in Route path to edit job/JobUpdateForm//
     const {id} = useParams();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -73,7 +74,7 @@ async function handleSubmit(event) {
         <label className="input-row">Location:
             <input type="text" name="location" id="location" value={formData.location} onChange={handleChange} required />
         </label>
-        <button type="submit">Update Job</button>
+        <button className="button-update" type="submit">Update Job</button>
       </form>  
     </div>
   )
